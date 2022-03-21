@@ -22,7 +22,7 @@ sequelize.sync({ force: false }).then(() => {
 Schema.sql file-don't think need to do anything here  //
 .env file, add to .gitgnore  //
 models according to readme instructions //
-relationships in models/index
+relationships in models/index   //
 routes for category/product/tag CRUD
 Create the code needed in server.js to sync the Sequelize models to the MySQL database on server start  //
 */
