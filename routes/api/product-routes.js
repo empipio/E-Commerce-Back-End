@@ -36,6 +36,11 @@ router.get("/:id", async (req, res) => {
 });
 
 // TODO: is this actually done?!
+//
+//Note that the functionality for creating the many-to-many relationship for products has already been completed for you.
+//Hint: Be sure to look at the mini-project code for syntax help and use your model's column definitions to figure out
+//what req.body will be for POST and PUT routes!
+//
 // create new product
 router.post("/", (req, res) => {
   /* req.body should look like this...
