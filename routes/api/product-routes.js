@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { Router } = require("express");
 const { Product, Category, Tag, ProductTag } = require("../../models");
 
 // The `/api/products` endpoint
@@ -7,7 +8,10 @@ const { Product, Category, Tag, ProductTag } = require("../../models");
 router.get("/", async (req, res) => {
   try {
     const productData = await Product.findAll({
-      include: [{ model: Category }, { model: Tag }],
+      include: [
+        { model: Category },
+        { model: Tag, through: ProductTag, as: "product_tags" },
+      ],
     });
     res.status(200).json(productData);
   } catch (err) {
@@ -19,7 +23,10 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const productData = await Product.findByPk(req.params.id, {
-      include: [{ model: Category }, { model: Tag }],
+      include: [
+        { model: Category },
+        { model: Tag, through: ProductTag, as: "product_tags" },
+      ],
     });
     if (!productData) {
       res.status(404).json({ message: "Product not found!" });
@@ -38,15 +45,9 @@ router.get("/:id", async (req, res) => {
 //what req.body will be for POST and PUT routes!
 //
 // create new product
+//
+//THIS SEEMS TO WORK NOW
 router.post("/", (req, res) => {
-  /* req.body should look like this...
-    {
-      product_name: "Basketball",
-      price: 200.00,
-      stock: 3,
-      tagIds: [1, 2, 3, 4]
-    }
-  */
   Product.create({
     product_name: req.body.product_name,
     price: req.body.price,
@@ -56,7 +57,8 @@ router.post("/", (req, res) => {
   })
     .then((product) => {
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
-      if (req.body.tagIds.length) {
+      //if (req.body.tagIds.length) {
+      if (req.body.tagIds) {
         const productTagIdArr = req.body.tagIds.map((tag_id) => {
           return {
             product_id: product.id,
@@ -76,7 +78,6 @@ router.post("/", (req, res) => {
 });
 
 // update product
-//do i need to put stuff in here re what req.body should look like...?
 router.put("/:id", (req, res) => {
   // update product data
   Product.update(
@@ -127,6 +128,7 @@ router.put("/:id", (req, res) => {
     });
 });
 
+//THIS WORKS
 router.delete("/:id", async (req, res) => {
   // delete one product by its `id` value
   try {

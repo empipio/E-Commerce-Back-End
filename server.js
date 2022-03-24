@@ -24,6 +24,11 @@ Schema.sql file-don't think need to do anything here  //
 models according to readme instructions //
 relationships in models/index   //
 routes for category/product/tag CRUD
-routes for product tag? -> double check this, may not need
 Create the code needed in server.js to sync the Sequelize models to the MySQL database on server start  //
 */
+
+//THINGS THAT DON'T WORK YET
+//
+//GET all/one products works but including loads of stuff i don't need -> look at attributes
+//
+//GET all/one tag works if don't include models
