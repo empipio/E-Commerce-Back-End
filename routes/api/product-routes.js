@@ -68,13 +68,13 @@ router.post("/", async (req, res) => {
       });
 
       const productTagIds = await ProductTag.bulkCreate(productTagIdArr);
-      res.status(200).json(productTagIds);
+      return res.status(200).json(productTagIds);
     }
     // if no product tags, just respond
     res.status(200).json(product);
   } catch (error) {
     console.log(error);
-    res.status(400).json(error);
+    return res.status(400).json(error);
   }
 });
 
