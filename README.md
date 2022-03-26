@@ -2,6 +2,8 @@
 
 The task for this project was to build the back end for an e-commerce site by modifying starter code. A working Express.js API was configured to use Sequelize to interact with a MySQL database.
 
+Technologies used include javascript, node.js, express.js, mysql and sequelize.
+
 The acceptance criteria were as follows:
 
 ```md
