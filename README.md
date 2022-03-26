@@ -25,4 +25,5 @@ THEN I am able to successfully create, update, and delete data in my database
 A screenshot of the routes being tested in Insomnia is visible below:
 ![screenshot of GET route for all categories being tested in Insomnia](/assets/app%20screenshot.png)
 
-A walkthrough video is available to view here:
+A walkthrough video is available to view here: https://youtu.be/OhpH-_W1i2s
+https://drive.google.com/file/d/1r0hPORa6pDTCYfK10vRkR04d4wpvyr5M/view
