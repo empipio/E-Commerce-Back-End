@@ -28,3 +28,7 @@ A screenshot of the routes being tested in Insomnia is visible below:
 ![screenshot of GET route for all categories being tested in Insomnia](/assets/app%20screenshot.png)
 
 A walkthrough video is available to view here: https://youtu.be/OhpH-_W1i2s
+
+Licence: MIT
+
+Contact me: emckibben@hotmail.co.uk
